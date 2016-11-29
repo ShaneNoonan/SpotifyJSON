@@ -18,6 +18,7 @@
 		E4BB82721DADAA0A004F359F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4BB82701DADAA0A004F359F /* LaunchScreen.storyboard */; };
 		E4BB827D1DADAA0A004F359F /* SpotifyJsonTutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB827C1DADAA0A004F359F /* SpotifyJsonTutTests.swift */; };
 		E4BB82881DADAA0B004F359F /* SpotifyJsonTutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BB82871DADAA0B004F359F /* SpotifyJsonTutUITests.swift */; };
+		E4D51C401DEE243D00112BA1 /* AudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D51C3F1DEE243D00112BA1 /* AudioVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		E4BB82831DADAA0B004F359F /* SpotifyJsonTutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotifyJsonTutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BB82871DADAA0B004F359F /* SpotifyJsonTutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyJsonTutUITests.swift; sourceTree = "<group>"; };
 		E4BB82891DADAA0B004F359F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4D51C3F1DEE243D00112BA1 /* AudioVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioVC.swift; sourceTree = "<group>"; };
 		EA824ABE764D06F740257610 /* Pods_SpotifyJsonTut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyJsonTut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73D8C32E0ED64E8C437A323 /* Pods-SpotifyJsonTut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyJsonTut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyJsonTut/Pods-SpotifyJsonTut.debug.xcconfig"; sourceTree = "<group>"; };
 		F80BC780E52654B9D20E1402 /* Pods-SpotifyJsonTutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyJsonTutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyJsonTutTests/Pods-SpotifyJsonTutTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				E4BB82641DADAA0A004F359F /* AppDelegate.swift */,
 				E4BB82661DADAA0A004F359F /* ViewController.swift */,
+				E4D51C3F1DEE243D00112BA1 /* AudioVC.swift */,
 				E4BB82681DADAA0A004F359F /* Main.storyboard */,
 				E4BB826E1DADAA0A004F359F /* Assets.xcassets */,
 				E4BB82701DADAA0A004F359F /* LaunchScreen.storyboard */,
@@ -239,7 +242,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Shane Noonan";
 				TargetAttributes = {
 					E4BB82601DADAA0A004F359F = {
@@ -436,6 +439,7 @@
 				E4BB82671DADAA0A004F359F /* ViewController.swift in Sources */,
 				E4BB82651DADAA0A004F359F /* AppDelegate.swift in Sources */,
 				E4BB826D1DADAA0A004F359F /* SpotifyJsonTut.xcdatamodeld in Sources */,
+				E4D51C401DEE243D00112BA1 /* AudioVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
