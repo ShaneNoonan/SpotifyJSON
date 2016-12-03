@@ -8,23 +8,38 @@
 
 import UIKit
 import Alamofire
+import AVFoundation
+
+var player = AVAudioPlayer()
 
 struct post {
     let mainImage : UIImage!
     let name : String!
+    let previewURL : String!
 }
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, UISearchBarDelegate {
     
-    var searchURL = "https://api.spotify.com/v1/search?q=Kanye+West&type=track"
+    var searchURL = String()
     var posts = [post]()
     typealias JSONStandard = [String: AnyObject]
 
+    @IBOutlet var searchBar: UISearchBar!
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let keywords = searchBar.text
+        let finalkeywords = keywords?.replacingOccurrences(of: " ", with: "+")
+        searchURL = "https://api.spotify.com/v1/search?q=\(finalkeywords!)&type=track"
+        
+        callAlamo(url: searchURL)
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        callAlamo(url: searchURL)
     }
     
     func callAlamo(url: String) {
@@ -40,12 +55,12 @@ class TableViewController: UITableViewController {
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             if let tracks = readableJSON["tracks"] as? JSONStandard{
-                if let items = tracks["items"]{
+                if let items = tracks["items"] as? [JSONStandard]{
                     for i in 0 ..< items.count{
-                        let item = items[i] as! JSONStandard
+                        let item = items[i]
                         print(item)
                         let name = item["name"] as! String
-                        
+                        let previewURL = item["preview_url"] as! String
                         if let album = item["album"] as? JSONStandard{
                             if let images = album["images"] as? [JSONStandard]{
                                 let imageData = images[0]
@@ -53,7 +68,7 @@ class TableViewController: UITableViewController {
                                 let mainImageData = NSData(contentsOf: mainImageURL!)
                                 
                                 let mainImage = UIImage(data: mainImageData as! Data)
-                                posts.append(post.init(mainImage: mainImage, name: name))
+                                posts.append(post.init(mainImage: mainImage, name: name, previewURL: previewURL))
                                 self.tableView.reloadData()
                             }
                         }
@@ -92,6 +107,7 @@ class TableViewController: UITableViewController {
         
         vc.image = posts[indexPath!].mainImage
         vc.mainSongTitle = posts[indexPath!].name
+        vc.mainPreviewURL = posts[indexPath!].previewURL
         
     }
 
